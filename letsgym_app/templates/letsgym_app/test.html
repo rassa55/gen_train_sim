@@ -1,0 +1,100 @@
+{% extends 'letsgym_app/menu.html' %}
+{% load static %}
+{% block head %}
+    <title>GymClub</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/letsgym_app/css/test.css">
+{% endblock %}
+
+
+{% block mymessage %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма тренировок</title>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown-submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            display: none;
+        }
+
+        .dropdown:hover .dropdown-submenu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Программа тренировок</h2>
+    <div id="form-container">
+        <form id="form-1" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="type_form" value="form_1">
+            <div class="form-group">
+                <label for="muscles-1">Группа мышц</label>
+                <select id="muscles-1" class="form-control">
+                    <option value="">Выберите группу мышц</option>
+                    <option value="up">Верх</option>
+                    <option value="down">Низ</option>
+                    <option value="hands">Руки</option>
+                </select>
+            </div>
+            <div id="hands-options-1" class="form-group" style="display: none">
+                <label for="hands-parts-1">Часть рук</label>
+                <select id="hands-parts-1" class="form-control">
+                    <option value="">Выберите часть рук</option>
+                    <option value="biceps">Бицепс</option>
+                    <option value="triceps">Трицепс</option>
+                    <!-- Добавьте другие опции для рук -->
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <button id="add-form">Еще</button>
+    <button id="submit_all">Добавить</button>
+</body>
+</html>
+
+<script src="{% static 'letsgym_app/js/test.js' %}?v3"></script>
+{% endblock %}
+
+
+
+
+

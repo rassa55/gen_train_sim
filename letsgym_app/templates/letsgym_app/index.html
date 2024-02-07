@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GymClub</title>
+
+    {% load static %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
+    <link href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/fontawesome-free/css/all.css' %}" rel="stylesheet">
+    <link href="{% static 'plugins/perfect-scrollbar/p-scrollbar.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/closed-sidemenu.css'%}" rel="stylesheet">
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+
+    <style>
+        body, html {
+            height: 100%;
+            background: #f7f7f7;
+        }
+
+        .login {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-sigin {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .main-signup-header {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn-main-primary {
+            background: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-main-primary:hover {
+            background: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+
+    <div class="page">
+        <div class="container-fluid pl-0">
+            <div class="row no-gutters">
+                <div class="col-md-6 bg-white">
+                    <div class="login d-flex align-items-center py-2">
+                        <div class="container p-0">
+                            <div class="row">
+                                <div class="col-md-10 col-lg-10 col-xl-9 mx-auto">
+                                    <div class="card-sigin">
+                                        <div class="main-signup-header">
+                                            <h2>Добро пожаловать!</h2>
+                                            <h5 class="font-weight-semibold mb-4">Введите данные для входа</h5>
+                                            {% if form.errors %}
+                                            <span class="text-danger">Неверный логин или пароль</span>
+                                            {% endif %}
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                <div class="form-group">
+                                                    <input name="username" class="form-control" placeholder="Логин" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input name="password" class="form-control" placeholder="Пароль" type="password">
+                                                </div>
+                                                <button class="btn btn-main-primary btn-block">Войти</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/logger.js' %}"></script> -->
+</body>
+</html>
